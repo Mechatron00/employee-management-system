@@ -1,0 +1,13 @@
+.example-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+  
+  }
+  
+  .example-full-width {
+    width: 800px;
+    
+  }

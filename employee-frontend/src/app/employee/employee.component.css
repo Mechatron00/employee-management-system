@@ -1,0 +1,24 @@
+
+/* .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  } */
+.action-buttons
+{
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
+    
+   
+}
+.td-action
+{
+  width: 120px;
+  display: flex;
+  justify-content: space-around;
+}
+.th-action
+{
+  text-align: center;
+}

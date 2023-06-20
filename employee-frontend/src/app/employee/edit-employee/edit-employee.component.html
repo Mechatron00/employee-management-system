@@ -1,0 +1,105 @@
+<form   [formGroup]="editEmployeeForm" (ngSubmit)="editEmployee()">
+ <div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Employee ID</mat-label>
+    <input type="text" matInput formControlName="employeeId" />
+  </mat-form-field>
+ </div>
+ <div>
+  <mat-form-field class="example-full-width">
+    <mat-label>First Name</mat-label>
+    <input type="text" matInput formControlName="fname" placeholder="First name" />
+    <mat-error *ngIf="editEmployeeForm.get('fname')?.hasError('required')">Name cannot be empty!</mat-error>
+    <mat-error *ngIf="editEmployeeForm.get('fname')?.hasError('minlength')">Should be minimum of 3 characters!</mat-error>
+
+
+  </mat-form-field>
+ </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name</mat-label>
+      <input type="text" matInput formControlName="lname" />
+      <mat-error *ngIf="editEmployeeForm.get('lname')?.hasError('required')">Last name cannot be empty!</mat-error>
+    <mat-error *ngIf="editEmployeeForm.get('lname')?.hasError('minlength')">Should be minimum of 3 characters!</mat-error>
+    </mat-form-field>
+  </div>
+ <div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email" />
+    <mat-error *ngIf="editEmployeeForm.get('email')?.hasError('required')">email required</mat-error>
+    <mat-error *ngIf="editEmployeeForm.get('email')?.hasError('email')">enter valid email</mat-error>
+
+
+  </mat-form-field>
+ </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Contact</mat-label>
+      <input type="text" matInput  formControlName="mobile"/>
+      <mat-error *ngIf="editEmployeeForm.get('mobile')?.hasError('required' || 'minlength' 
+      && 'maxlength')">enter valid mobile number</mat-error>
+    </mat-form-field>
+  </div>
+ <div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Address Line 1</mat-label>
+    <input type="text" matInput formControlName="addressLine1" />
+    <mat-error *ngIf="editEmployeeForm.get('addressLine1')?.hasError('required')">Address line 1 is required</mat-error>
+    <mat-error *ngIf="editEmployeeForm.get('addressLine1')?.hasError('maxlength')">Maximum 25 characters allowed</mat-error>
+
+
+  </mat-form-field>
+ </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address Line 2</mat-label>
+      <input type="text" matInput  formControlName="addressLine2"/>
+      <mat-error *ngIf="editEmployeeForm.get('addressLine1')?.hasError('maxlength')">Maximum 25 characters allowed</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>City</mat-label>
+      <input type="text" matInput formControlName="city"/>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>State</mat-label>
+      <input type="text" matInput  formControlName="state"/>
+    </mat-form-field>
+  </div>
+<div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Country</mat-label>
+    <input type="text" matInput formControlName="country" />
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Zipcode</mat-label>
+    <input type="text" matInput formControlName="zipcode" />
+    <mat-error *ngIf="editEmployeeForm.get('zipcode')?.hasError('maxlength')">should be 6 digits</mat-error>
+    <mat-error *ngIf="editEmployeeForm.get('zipcode')?.hasError('pattern')">Enter valid pincode</mat-error>
+
+
+  </mat-form-field>
+</div>
+ <div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Position</mat-label>
+    <input type="text" matInput formControlName="position" />
+  </mat-form-field>
+ </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Salary</mat-label>
+      <input type="number" matInput placeholder="salary per month" formControlName="salary"/>
+    </mat-form-field>
+  </div>
+ 
+  <div>
+    <button [disabled]="editEmployeeForm.invalid" type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+</form>
