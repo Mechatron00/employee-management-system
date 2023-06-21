@@ -26,7 +26,7 @@ export class AddemployeeComponent {
     country: '',
     zipcode: '',
     position: '',
-    salary:10000,
+    salary:0,
   };
   constructor(
     private employeeServive: EmployeeService,

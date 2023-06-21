@@ -36,7 +36,7 @@
   <div>
     <mat-form-field class="example-full-width">
       <mat-label>Contact</mat-label>
-      <input type="text" matInput  formControlName="mobile"/>
+      <input type="text" matInput  formControlName="mobile" maxlength="10"/>
       <mat-error *ngIf="editEmployeeForm.get('mobile')?.hasError('required' || 'minlength' 
       && 'maxlength')">enter valid mobile number</mat-error>
     </mat-form-field>

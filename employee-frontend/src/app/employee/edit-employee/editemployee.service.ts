@@ -10,9 +10,13 @@ export class EditemployeeService
   constructor(private http: HttpClient) {}
 
   employee!: EmployeeList;
+ 
 
+  
+  
   editEmployeeData(id:string,emp:EmployeeList)
   {
    return this.http.put<EmployeeList>(`http://localhost:8080/employee/${id}`,emp);
   }
+
 }

@@ -21,6 +21,8 @@ import { AddemployeeComponent } from './employee/addemployee/addemployee.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
+import { FilterPipe } from './employee/filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.co
     NavBarComponent,
     AddemployeeComponent,
     EditEmployeeComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

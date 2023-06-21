@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { EmployeeList } from './employee';
 
 import { Router } from '@angular/router';
 import { EditemployeeService } from './edit-employee/editemployee.service';
 import { PageEvent } from '@angular/material/paginator';
+import { FormControl } from '@angular/forms';
+import { MatCellDef } from '@angular/material/table';
 
 @Component({
   selector: 'app-employee',
@@ -13,7 +15,6 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class EmployeeComponent implements OnInit {
   title = 'Employee management system';
-
   employees: EmployeeList[] = [];
   public pageSlice = this.employees.slice(0, 5);
   columnsToDisplay = [
@@ -31,7 +32,7 @@ export class EmployeeComponent implements OnInit {
     private employeeService: EmployeeService,
     private router: Router,
     private editEmployeeService: EditemployeeService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getAllEmployees();
@@ -40,7 +41,6 @@ export class EmployeeComponent implements OnInit {
     //     this.employees=data
     //   })
   }
-
   getAllEmployees() {
     this.employeeService.getEmployeeData().subscribe((data) => {
       this.employees = data;
@@ -48,20 +48,19 @@ export class EmployeeComponent implements OnInit {
       this.pageSlice = this.employees.slice(0, 5);
     });
   }
-  deleteEmployee(employee:EmployeeList,id:string) {
+  deleteEmployee(employee: EmployeeList, id: string) {
     // console.log(id);
-    
-
-    if (confirm(`Do you really want to delete ${employee.employeeId} data`) == true) 
-    {
+    if (
+      confirm(`Do you really want to delete ${employee.employeeId} data`) ==
+      true
+    ) {
       this.employeeService.deleteEmployee(id).subscribe((data) => {
         this.employeeService.getEmployeeData().subscribe((data) => {
           this.employees = data;
           this.pageSlice = this.employees.slice(0, 5);
+        });
       });
-      });
-    } else 
-    {
+    } else {
       this.getAllEmployees();
     }
   }
@@ -70,7 +69,6 @@ export class EmployeeComponent implements OnInit {
     this.editEmployeeService.employee = employee;
     this.router.navigate(['edit']);
   }
-
   onPageChange(event: PageEvent) {
     // console.log(event);
     const startIndex = event.pageIndex * event.pageSize;
@@ -81,5 +79,21 @@ export class EmployeeComponent implements OnInit {
       endIndex = this.employees.length;
     }
     this.pageSlice = this.employees.slice(startIndex, endIndex);
+  }
+  applyFilter(event: Event) {
+    // console.log(event);
+
+    const filterValue = (event.target as HTMLInputElement).value;
+    // console.log(filterValue);
+    this.pageSlice = this.employees.filter((employee) => {
+      return (
+        employee.fname.toLowerCase().includes(filterValue.toLowerCase()) ||
+        employee.lname.toLowerCase().includes(filterValue.toLowerCase()) ||
+        employee.employeeId.toLowerCase().includes(filterValue.toLowerCase()) ||
+        employee.email.toLowerCase().includes(filterValue.toLowerCase())
+      );
+    });
+    this.pageSlice = this.pageSlice.slice(0, 5);
+    // console.log(this.pageSlice);
   }
 }
