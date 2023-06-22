@@ -1,4 +1,5 @@
-![Screenshot (5)](https://github.com/Mechatron00/employee-management-system/assets/114578318/5fa5ed5f-28cb-46f4-ae05-ce15b94b5bfc)
+
+![Screenshot (2)](https://github.com/Mechatron00/employee-management-system/assets/114578318/4e9a783b-aac9-44bf-8cce-c8d0345a63a5)
 ![Screenshot (5)](https://github.com/Mechatron00/employee-management-system/assets/114578318/9cdfb4d3-30e9-4edf-a8f8-251bfafeee56)
 ![Screenshot (4)](https://github.com/Mechatron00/employee-management-system/assets/114578318/b0b17bfd-96da-4cc9-8e59-393aa1c36b24)
 ![Screenshot (3)](https://github.com/Mechatron00/employee-management-system/assets/114578318/bcd03507-0a3b-403e-952c-7e28dc8047ab)
