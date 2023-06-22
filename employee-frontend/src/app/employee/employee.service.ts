@@ -55,4 +55,8 @@ export class EmployeeService
   {
     this._snackBar.open("Employee Data deleted  successfully","OK");
   }
+  employeeUpdated()
+  {
+    this._snackBar.open("Employee data updated  successfully","OK");
+  }
 }

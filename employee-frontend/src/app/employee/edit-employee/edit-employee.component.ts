@@ -114,6 +114,7 @@ export class EditEmployeeComponent implements OnInit {
       (response) => {
         // console.log('Employee data updated successfully:', response);
         this.router.navigate(['employee']);
+        this.employeeService.employeeUpdated();
       },
       (error) => {
         console.error('An error occurred while updating employee data:', error);

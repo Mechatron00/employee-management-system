@@ -11,3 +11,11 @@
     width: 800px;
     
   }
+  .form-heading
+  {
+    width: 800px;
+    font-size: xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    text-align: center;
+  }

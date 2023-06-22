@@ -1,0 +1,18 @@
+.form-heading
+  {
+    
+    font-size: xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    text-align: center;
+  }
+  .btn-div
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #btn
+  {
+    width: 150px;
+  }
