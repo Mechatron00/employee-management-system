@@ -1,18 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { EmployeeList } from './employee';
-
 import { Router } from '@angular/router';
 import { EditemployeeService } from './edit-employee/editemployee.service';
 import { PageEvent } from '@angular/material/paginator';
-import { FormControl } from '@angular/forms';
-import { MatCellDef } from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogueComponent } from './dialogue/dialogue.component';
+
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
 })
+
 export class EmployeeComponent implements OnInit {
   title = 'Employee management system';
   employees: EmployeeList[] = [];
@@ -31,7 +32,10 @@ export class EmployeeComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private router: Router,
-    private editEmployeeService: EditemployeeService
+    private editEmployeeService: EditemployeeService,
+    public dialog: MatDialog,
+    
+    
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +52,8 @@ export class EmployeeComponent implements OnInit {
       this.pageSlice = this.employees.slice(0, 5);
     });
   }
-  deleteEmployee(employee: EmployeeList, id: string) {
+  deleteEmployee(employee: EmployeeList, id: string) 
+  {
     // console.log(id);
     if (
       confirm(`Do you really want to delete ${employee.employeeId} data`) ==
@@ -58,10 +63,11 @@ export class EmployeeComponent implements OnInit {
         this.employeeService.getEmployeeData().subscribe((data) => {
           this.employees = data;
           this.pageSlice = this.employees.slice(0, 5);
+          this.employeeService.employeeDeleted();
         });
       });
     } else {
-      this.getAllEmployees();
+      // this.getAllEmployees();
     }
   }
   sendEmployee(employee: EmployeeList) {
@@ -93,7 +99,16 @@ export class EmployeeComponent implements OnInit {
         employee.email.toLowerCase().includes(filterValue.toLowerCase())
       );
     });
-    this.pageSlice = this.pageSlice.slice(0, 5);
+    this.pageSlice = this.pageSlice.slice(0,5);
     // console.log(this.pageSlice);
   }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogueComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+  
+ 
 }

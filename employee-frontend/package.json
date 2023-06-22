@@ -1,12 +1,14 @@
 {
-  "name": "employee-frontend",
+  "name": "employeemanagementsyatem",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 1947",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "ng serve":"ng serve --port 1947"
+
   },
   "private": true,
   "dependencies": {

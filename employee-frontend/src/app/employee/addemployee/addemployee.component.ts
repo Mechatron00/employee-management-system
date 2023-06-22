@@ -39,6 +39,7 @@ export class AddemployeeComponent {
       employeeForm.reset();
       // this.employeeServive.employee = data;
       this.route.navigate(['employee']);
+      this.employeeServive.openSnackBar();
     });
   }
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);

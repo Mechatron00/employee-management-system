@@ -38,7 +38,14 @@
 <!-- <div>
   <button type="button" (click)="addEmployeeData()">Add</button>
 </div>  -->
-
+<!-- <h1 mat-dialog-title>Delete file</h1>
+<div mat-dialog-content>
+  Would you like to delete cat.jpeg?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div> -->
 <div class="mat-elevation-z8">
   <mat-form-field>
     <mat-label>Search</mat-label>
@@ -91,7 +98,7 @@
             <button
               mat-mini-fab
               color="primary"
-              (click)="deleteEmployee(this.employee,this.employee.id)"
+              (click)="deleteEmployee(this.employee,this.employee.id);"
             >
               <mat-icon>delete</mat-icon>
             </button>

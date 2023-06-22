@@ -22,6 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
 import { FilterPipe } from './employee/filter.pipe';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogueComponent } from './employee/dialogue/dialogue.component';
+
+
 
 @NgModule({
   declarations: [
@@ -31,6 +36,7 @@ import { FilterPipe } from './employee/filter.pipe';
     AddemployeeComponent,
     EditEmployeeComponent,
     FilterPipe,
+    DialogueComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,8 @@ import { FilterPipe } from './employee/filter.pipe';
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

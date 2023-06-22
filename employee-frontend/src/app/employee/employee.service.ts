@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { EmployeeList } from './employee';
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable, shareReplay, timeout } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EmployeeComponent } from './employee.component';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,8 @@ export class EmployeeService
 {
   employee: EmployeeList[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private _snackBar: MatSnackBar) {}
 
   getEmployees$ = this.http
     .get<EmployeeList[]>('http://localhost:8080/employee')
@@ -41,4 +44,15 @@ export class EmployeeService
    return this.http.put<EmployeeList[]>(`http://localhost:8080/employee/${id}`,employee);
   }
 
+  durationInSeconds = 1;
+  
+  openSnackBar() {
+    
+    this._snackBar.open("Employee Data added successfully","OK");
+
+  }
+  employeeDeleted()
+  {
+    this._snackBar.open("Employee Data deleted  successfully","OK");
+  }
 }
